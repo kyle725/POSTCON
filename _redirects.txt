@@ -1,0 +1,6 @@
+# Serve index.html at root
+/    /demo5.html   200
+
+# Serve submission.html exactly
+/submission.html    /submission.html   200
+
