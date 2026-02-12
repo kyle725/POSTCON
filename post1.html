@@ -282,7 +282,7 @@
     </div>
 
     <div class="submit-wrap">
-      <button type="submit">submit</button>
+     <button type="submit" id="submitBtn">submit</button>
     </div>
 
   </form>
@@ -290,14 +290,47 @@
 </div>
 
 <script>
+  /* ===== BACKGROUND SLIDESHOW ===== */
   const slides = document.querySelectorAll('.bg-slide');
   let index = 0;
+
   setInterval(() => {
     slides[index].classList.remove('active');
     index = (index + 1) % slides.length;
     slides[index].classList.add('active');
   }, 6000);
+
+  /* ===== PREVENT DOUBLE SUBMIT ===== */
+  const form = document.querySelector("form");
+  const submitBtn = document.getElementById("submitBtn");
+
+  let isSubmitting = false;
+
+  form.addEventListener("submit", function (e) {
+
+    if (isSubmitting) {
+      // If user tries again
+      e.preventDefault();
+      alert("Please wait. Your form is still submitting...");
+      return;
+    }
+
+    // First click
+    isSubmitting = true;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    // Re-enable after 5 seconds (failsafe)
+    setTimeout(() => {
+      isSubmitting = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = "submit";
+    }, 5000);
+
+  });
 </script>
+
 
 </body>
 </html>
