@@ -181,31 +181,78 @@
 
     button:hover { background: #ff6cc8; }
 
-    /* ===== MEDIA QUERIES ===== */
-    @media (max-width: 900px) {
-      .container { width: 85%; padding: 20px; }
-      .logo { width: 50px; height: 50px; }
-      .consult-title { font-size: 40px; }
-      form { grid-template-columns: 1fr; }
-      .full, .submit-wrap { grid-column: span 1; }
-      .submit-wrap { justify-content: center; }
-    }
+    /* Tablets and small laptops */
+@media (max-width: 900px) {
+  .container {
+    width: 85%;
+    padding: 20px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .consult-title {
+    font-size: 40px;
+    text-align: center; /* Center title on smaller screens */
+  }
+  form {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 15px; /* Add spacing between inputs */
+  }
+  .full, .submit-wrap {
+    grid-column: span 1;
+  }
+  .submit-wrap {
+    justify-content: center;
+  }
+}
 
-    @media (max-width: 600px) {
-      .container { width: 95%; padding: 15px; }
-      .logo { width: 45px; height: 45px; }
-      .consult-title { font-size: 30px; }
+/* Mobile phones (portrait & small landscape) */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+  .consult-title {
+    font-size: 30px;
+    text-align: center;
+  }
+  textarea {
+    width: 100%; /* Fill container width */
+    height: 120px; /* Comfortable for mobile typing */
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    resize: vertical; /* Allow vertical resize only */
+  }
+  input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .submit-wrap {
+    margin-top: 10px;
+  }
+}
 
-      textarea {
-        height: 120px;
-        border-radius: 8px; /* NOT circular on mobile */
-      }
-    }
+/* Extra small phones */
+@media (max-width: 420px) {
+  .consult-title {
+    font-size: 28px;
+  }
+  textarea {
+    height: 140px; /* Give more space for typing */
+  }
+  .container {
+    padding: 10px;
+  }
+}
 
-    @media (max-width: 420px) {
-      .consult-title { font-size: 30px; }
-      textarea { height: 140px; }
-    }
   </style>
 </head>
 
@@ -334,6 +381,7 @@
 
 </body>
 </html>
+
 
 
 
